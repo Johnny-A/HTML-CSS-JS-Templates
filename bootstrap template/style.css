@@ -1,0 +1,44 @@
+html, body {
+	background: url(img/conc.jpg);
+	margin: 0;
+	padding: 0;
+	font-family: 'Lato', sans-serif;
+	color:#fff;
+}
+div {
+	box-sizing: border-box;
+}
+div:before,div:after {
+	content: '';
+	clear: both;
+	display: block;
+}
+.jumbotron{
+	background:none;
+	padding:0;
+}
+@media (max-width:383px) {
+	h3{margin-top:0px;}
+	p{margin-bottom:0px;}
+}
+@media (max-width:520px) {
+	.carousel-caption h2 {font-size:12px;}
+	.carousel-caption p {font-size:8px;}
+}
+@media (max-width:1200px) {
+	.jumbotron h2 {font-size:25px;}
+	.jumbotron p {font-size:15px;}
+}
+@media (max-width:991px) {
+.jumbotron{margin-left:100px; width: 100%;}
+.jumbotron h2 {font-size:25px;}
+.jumbotron p {font-size:20px;}
+}
+@media (max-width:900px) {
+.jumbotron{margin-left:0;}
+.jumbotron h2 {font-size:20px;}
+.jumbotron p {font-size:15px;}
+}
+a{
+	color:#56E225;
+}
