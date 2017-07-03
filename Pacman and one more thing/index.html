@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pacman</title>
+	<meta charset="utf-8">
+	<style>
+.pacman{
+	width: 0; 
+	height: 0; 
+	border-bottom: 100px solid yellow; 
+	border-right: 100px solid #fff; 
+	border-left: 100px solid yellow; 
+	border-top: 100px solid yellow;
+	border-top-left-radius: 300px;
+	border-bottom-left-radius: 300px; 
+	border-top-right-radius: 300px;
+	border-bottom-right-radius:  300px;
+	/*transition: border-right 3s;*/
+	position: relative;
+}
+.eye{
+	width:20px;
+	height: 20px;
+	border-radius: 23px;
+	background: #000;
+	margin:-147px 0 0 80px;
+	float:left;
+	position: relative;	 
+	z-index: 1;
+
+}
+.eye_l{
+	width:40px;
+	height: 40px;
+	border-radius: 40px;
+	background: #000;
+	margin:-120px 0 0 120px;
+	float:left;
+	position: relative;	 
+}
+.eye_r{
+	width:40px;
+	height: 40px;
+	border-radius: 40px;
+	background: #000;
+	margin: -120px 0 0 210px;
+	float:left;		
+}
+.eye_lr{
+	width:40px;
+	height: 40px;
+	border-radius: 40px;
+	background: #000;
+	margin: -120px 0 0 300px;
+	float:left;		
+}
+.eye_rl{
+	width:40px;
+	height: 40px;
+	border-radius: 40px;
+	background: #000;
+	margin: -120px 0 0 380px;
+	float:left;		
+}
+.pacman:hover{
+	border-right: 100px solid yellow;
+	z-index: 1;
+}
+.spaceship{
+	margin: 40px 0 0 40px;
+	width: 0;
+	height:0;
+	border-bottom: 100px solid transparent; 
+	border-right: 100px solid #000; 
+	border-left: 100px solid #000; 
+	border-top: 100px solid transparent;
+	transition: all 5s;
+}
+.spaceship:hover{
+	margin-left: 400px;
+	margin-top: 150px;
+}
+.triangle{
+	margin: 40px 0 0 40px;
+	width: 0;
+	height:0;
+	border-bottom: 100px solid #000; 
+	border-right: 100px solid transparent; 
+	border-left: 100px solid #000; 
+	border-top: 100px solid transparent;
+	transition: all 5s; 
+}
+.triangle:hover{
+	transform: rotate(135deg);
+	margin: -40px 0 0 40px;	
+}
+.trapezium{
+	width: 0;
+	height:0;
+	border-bottom: 70px solid #000; 
+	border-right: 70px solid #000; 
+	border-left: 70px solid #000; 
+	border-top: 70px solid #000;
+	float:right;
+	margin-top: -500px;
+	margin-right: 800px;
+	position: relative;	
+	transition: all 5s; 
+}
+.trapezium:after{
+	width: 0;
+	height:0;
+	border-bottom: 70px solid #000; 
+	border-right: 70px solid #000; 
+	border-left: 70px solid transparent; 
+	border-top: 70px solid transparent;
+	content: " ";
+	position:absolute;
+	margin: -70px 0 0 -210px;
+}
+.trapezium:hover{
+	margin-right: 700px;
+	border-left: 70px solid #fff;
+	border-bottom: 70px solid #fff; 
+}
+.tab{
+	border: 2px solid #fff;
+	margin: 0 0 0 0;
+}
+table{
+	border:1px solid #fff;
+	transform: rotate(-45deg);
+	margin: 10px 0 0 -50px;
+	width: 30px;
+	height: 60px;
+}	
+th{
+	border:1px solid #fff;
+}
+
+
+	</style>
+
+</head>
+<body>
+	<div class="pacman"></div>
+	<div class="eye"></div>
+	<div class="eye_l"></div>
+	<div class="eye_r"></div>
+	<div class="eye_lr"></div>
+	<div class="eye_rl"></div>
+	<div class="spaceship"></div>
+	<div class="triangle">
+		<table>
+			<tr>
+				<th></th>
+			</tr>
+			<tr>
+				<th></th>
+			</tr>
+			<tr>
+				<th></th>
+			</tr>
+			<tr>
+				<th></th>
+			</tr>
+		</table>	
+	</div>
+	<div class="trapezium"></div>
+</body>
+</html>
