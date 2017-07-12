@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Work</title>
+	<meta charset="utf-8">
+	<style>
+		div {
+			box-sizing: border-box;
+		}
+		div:before, div:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.chat {
+			border: 2px solid #eee;
+		}
+		.chat__content, .chat__sidebar {
+			float: left;
+		}
+		.chat__content {
+			width: 80%;
+		}
+		.chat__wall {
+			height: 500px;
+			border: 2px solid rgb(22,231,225);
+			overflow: auto;
+			position: relative;
+		}
+		.chat__message{
+			float: left;
+			padding: 5px 15px;
+			border-radius: 10px;
+			background: #a6fcd5;
+			margin: 5px;
+			clear: both;
+		}
+		.chat__message_right{
+			float: right;
+			background: #bee5f4;
+		}
+
+
+		.chat__name {
+			text-align: center;
+		}
+		.chat__input, .chat__button {
+			border: 2px solid rgb(22,231,225);
+			padding: 5px 10px;
+			margin: 0;
+		}
+		.chat__button {
+			text-align: center;
+		}
+
+		.chat__sidebar {
+			width: 20%;
+		}
+		.chat__avatar {
+			background: #eee;
+			width: 380px;
+			max-width: 100%;
+			height: 60px;
+			background: url("i.jpg") no-repeat; background-position:center;
+		}
+		h2{margin-top: -40px;}
+
+		.myBtn {
+		  position: fixed;
+
+		  z-index: 9;
+		  border: none;
+		  outline: none;
+		  background-color: red;
+		  color: white;
+		  cursor: pointer;
+		  padding: 5px;
+			margin-left: 15px;
+			margin-top: 1px;
+
+		}
+		.myBtn:hover {
+		  background-color: #555;
+		}
+
+		/*#footer{margin-top:10px;width:200px; height:200px;background-color:rgb(147,138,235);}
+		/*.vniz{margin-left: 300px;margin-top: 500px;position: fixed;z-index: 9;}*/
+			</style>
+</head>
+<body>
+	<div class="chat">
+
+		<div class="chat__content">
+			<div class="chat__wall">
+
+						</div>
+				<!--<p class="niz">з</p>-->
+
+
+			<div class="chat__input_box">
+				<input class="chat__input" type="text" name="text" placeholder="" />
+				<button class="chat__button" type="button">Sent</button>
+				<!---->
+				<button onclick="myFun()">scroll down</button>
+				<button onclick="topFunction()" class="myBtn" title="Go to top">Top</button>
+
+			</div>
+		</div>
+		<div class="chat__sidebar">
+			<div class="chat__avatar"></div>
+			<div class="chat__name"><h2>Connor Macgregor</h2></div>
+		</div>
+	</div>
+	<script>
+
+			function myFun() {
+				var elemnt = document.querySelector('.chat__wall').querySelector('.chat__message_right');
+				var last_Child = elemnt.lastChild;
+				elemnt.scrollIntoView();
+			}
+
+
+
+		//-----------тут ничего не пиши-------------//
+		function avatar() {
+
+			var avatar = document.querySelector( '.chat__avatar' );
+			var ava_width = avatar.offsetWidth;
+			avatar.style.height = ava_width + "px";
+			console.log( ava_width );
+		}
+		avatar ();
+
+		function send_text( text, class_name ){
+    // если текст не введен прервать работу функции.
+			if( text == '' ) {
+				return;
+			}
+			var date = new Date();
+			var options = {year: 'numeric', month: 'numeric',  day: 'numeric',  hour: 'numeric',  minute: 'numeric',  second: 'numeric'};
+			var div = document.createElement('div');
+			div.className = class_name;
+			div.innerHTML =  '<img src="i.jpg" width="50" height="50">' + '    ' + date.toLocaleString('ru', options) + '   ' + text;
+			document.querySelector(".chat__wall").appendChild( div );
+			document.querySelector(".chat__wall .chat__message:last-child").scrollIntoView();
+		}
+		function agrigate_chat(){
+			var chat_input = document.querySelector(".chat__input");
+			var text = chat_input.value;
+			send_text( text, 'chat__message' );
+			// ответ----------------------------------------
+			var reverse_text = '';
+			for( var i = text.length - 1; i >= 0; i-- ){
+				console.log( i + ' ' + text.charAt( i ) );
+				reverse_text += text.charAt( i );
+			}
+			// задержка ответа------------------------------
+			setTimeout(function(){
+				send_text( reverse_text, 'chat__message chat__message_right' );
+			}, 2000 );
+
+
+			chat_input.value = '';
+			chat_input.focus();
+		}
+
+		addEventListener( "keydown", function( event ) {
+
+			if ( event.keyCode == 13){
+				agrigate_chat();
+			}
+
+		});
+
+		document.querySelector('.chat__button').addEventListener( 'click',function(event) {
+				agrigate_chat();
+		});
+
+//-----------------------------------
+
+
+
+
+
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+				document.querySelector('.chat__wall').scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+		}
+
+
+
+
+
+
+			/*1. Если окно чата заполнено сообщениями и появился вертикальный скрол, то при прокрутке к старым сообщениям должна появляться кнопка, нажав на которую будет произведена прокрутка к последнему сообщению.
+			2. После того, как был произведен вывод сообщения пользователя, и компьютер начал "печать" свое сообщение, вместо его сообщения должно появляться уведомление, что он что-то пишет...
+		*/
+	</script>
+</body>
+</html>
